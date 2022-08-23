@@ -1,0 +1,23 @@
+[
+    {
+        "model": "summitapi.hikeskilllevel",
+        "pk": 1,
+        "fields": {
+            "level": "Easy"
+        }
+    },
+    {
+        "model": "summitapi.hikeskilllevel",
+        "pk": 2,
+        "fields": {
+            "level": "Moderate"
+        }
+    },
+    {
+        "model": "summitapi.hikeskilllevel",
+        "pk": 3,
+        "fields": {
+            "level": "Hard"
+        }
+    }
+]

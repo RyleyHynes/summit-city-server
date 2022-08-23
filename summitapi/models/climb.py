@@ -2,9 +2,10 @@ from django.db import models
 
 
 class Climb(models.Model):
+    user = models.ForeignKey("SummitUser", on_delete=models.CASCADE, related_name="climbs")
     name = models.CharField(max_length=100)
-    description = models.CharField(max_length=150)
-    location = models.CharField(max_length=150)
+    description = models.TextField()
+    location = models.CharField(max_length=250)
     completed = models.BooleanField(default=False)
     bucket_list = models.BooleanField(default=False)
     climb_image_url = models.URLField()

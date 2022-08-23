@@ -1,0 +1,18 @@
+[
+    {
+        "model": "summitapi.activity",
+        "pk": 1,
+        "fields": {
+            "type": "Hiking",
+            "activity_image_url": "https://www.planetware.com/photos-large/USWY/wyoming-grand-teton-national-park-teton-crest-loop.jpg"
+        }
+    },
+    {
+        "model": "summitapi.activity",
+        "pk": 2,
+        "fields": {
+            "type": "Rock Climbing",
+            "activity_image_url": "https://static.rootsrated.com/image/upload/s--YcRTVQ3t--/t_rr_large_natural/c18cuz6dxasxcpfujf5w.jpg"
+        }
+    }
+]

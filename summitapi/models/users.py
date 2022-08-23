@@ -9,4 +9,3 @@ class SummitUser(models.Model):
         upload_to='profileimages', height_field=None,
         width_field=None, max_length=None, null=True
     )
-    staff = models.BooleanField(default=False)

@@ -1,0 +1,20 @@
+[
+    {
+        "model": "summitapi.summituser",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "bio": "Me",
+            "profile_image": ""
+        }
+    },
+    {
+        "model": "summitapi.summituser",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "bio": "Me",
+            "profile_image": ""
+        }
+    }
+]

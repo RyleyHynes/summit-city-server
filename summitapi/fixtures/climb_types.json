@@ -1,0 +1,30 @@
+[
+    {
+        "model": "summitapi.climbtype",
+        "pk": 1,
+        "fields": {
+            "name": "Alpine"
+        }
+    },
+    {
+        "model": "summitapi.climbtype",
+        "pk": 2,
+        "fields": {
+            "name": "Trad"
+        }
+    },
+    {
+        "model": "summitapi.climbtype",
+        "pk": 3,
+        "fields": {
+            "name": "Sport"
+        }
+    },
+    {
+        "model": "summitapi.climbtype",
+        "pk": 4,
+        "fields": {
+            "name": "Top Rope"
+        }
+    }
+]
