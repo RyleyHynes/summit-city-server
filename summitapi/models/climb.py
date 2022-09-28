@@ -15,3 +15,4 @@ class Climb(models.Model):
         "ClimbType", on_delete=models.CASCADE, related_name="climbs")
     grade = models.ForeignKey(
         "Grade", on_delete=models.CASCADE, related_name="climbs")
+    tag = models.ManyToManyField("Tag", through="ClimbTag", related_name="climbs")

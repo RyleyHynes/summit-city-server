@@ -51,6 +51,19 @@ class HikeSkillLevelView(ViewSet):
         serializer = HikeSkillLevelSerializer(hike_skill_level)
         return Response(serializer.data)
 
+    def update(self, request, pk):
+        """Handle PUT requests for a tag
+        
+        Returns:
+            Response -- Empty body with 204 status code
+            """
+        hike_skill_level = HikeSkillLevel.objects.get(pk=pk)
+        hike_skill_level.level=request.data["level"]
+
+        hike_skill_level.save()
+        
+        return Response(None, status.HTTP_204_NO_CONTENT)
+
     def destroy(self, request, pk):
         """Handles DELETE operations
         

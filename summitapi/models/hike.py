@@ -15,4 +15,4 @@ class Hike(models.Model):
         "Activity", on_delete=models.CASCADE, related_name="hikes")
     hike_skill_level = models.ForeignKey(
         "HikeSkillLevel", on_delete=models.CASCADE, related_name="hikes")
-    attraction_type = models.ForeignKey("Attraction", on_delete=models.CASCADE, null=True, related_name="hikes")
+    tags = models.ManyToManyField("Tag", through="HikeTag", related_name="hikes")

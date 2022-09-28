@@ -1,0 +1,31 @@
+[
+    {
+        "model": "summitapi.tag",
+        "pk": 1,
+        "fields": {
+            "label": "Waterfall"
+        }
+    },
+    {
+        "model": "summitapi.tag",
+        "pk": 2,
+        "fields": {
+            "label": "Wildlife"
+        }
+    },
+    {
+        "model": "summitapi.tag",
+        "pk": 3,
+        "fields": {
+            "label": "Jugs"
+        }
+    },
+    {
+        "model": "summitapi.tag",
+        "pk": 4,
+        "fields": {
+            "label": "Crimpy"
+        }
+    }
+
+]
