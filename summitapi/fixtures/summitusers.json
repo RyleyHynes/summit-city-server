@@ -4,6 +4,8 @@
         "pk": 1,
         "fields": {
             "user": 1,
+            "address": "123 Python Place",
+            "phone_number": "518-813-2692",
             "bio": "Me",
             "profile_image": ""
         }
@@ -13,6 +15,8 @@
         "pk": 2,
         "fields": {
             "user": 2,
+            "address": "457 SQL Street",
+            "phone_number": "518-813-2692",
             "bio": "Me",
             "profile_image": ""
         }

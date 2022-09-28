@@ -18,9 +18,14 @@ from django.urls import path, include
 from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
+from summitapi.views.attractions import AttractionView
 from summitapi.views.auth import login_user, register_user
+from summitapi.views.hike_skill_levels import HikeSkillLevelView
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'hike_skill_levels', HikeSkillLevelView, 'hike_skill_level')
+router.register(r'attractions', AttractionView, 'attraction')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

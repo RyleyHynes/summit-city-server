@@ -1,0 +1,16 @@
+[
+    {
+        "model": "summitapi.attraction",
+        "pk": 1,
+        "fields": {
+            "attraction_type": "Waterfall"
+        }
+    },
+    {
+        "model": "summitapi.attraction",
+        "pk": 2,
+        "fields": {
+            "attraction_type": "Wildlife"
+        }
+    }
+]

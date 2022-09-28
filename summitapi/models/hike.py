@@ -8,7 +8,6 @@ class Hike(models.Model):
     location = models.CharField(max_length=200)
     estimated_length = models.CharField(max_length=100)
     description = models.TextField()
-    attractions = models.CharField(max_length=100)
     completed = models.BooleanField(default=False)
     bucket_list = models.BooleanField(default=False)
     hike_image_url = models.URLField()
@@ -16,3 +15,4 @@ class Hike(models.Model):
         "Activity", on_delete=models.CASCADE, related_name="hikes")
     hike_skill_level = models.ForeignKey(
         "HikeSkillLevel", on_delete=models.CASCADE, related_name="hikes")
+    attraction_type = models.ForeignKey("Attraction", on_delete=models.CASCADE, null=True, related_name="hikes")
