@@ -24,7 +24,7 @@ Summit City allows users to select and filter through different hikes and climbs
 * Github
 
 # Initial WireFrame
-[Miro Wireframe] (https://miro.com/app/board/uXjVOuz_z3k=/?share_link_id=454122560128)
+[Miro Wireframe (https://miro.com/app/board/uXjVOuz_z3k=/?share_link_id=454122560128)] 
 
 # Initial ERD
-[Dbdiagram ERD] (https://dbdiagram.io/d/62a2290392b33b4f51348cbb)
+[Dbdiagram ERD (https://dbdiagram.io/d/62a2290392b33b4f51348cbb)] 
