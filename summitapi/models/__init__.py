@@ -2,6 +2,8 @@ from .activity import Activity
 from .climb_tag import ClimbTag
 from .climb_type import ClimbType
 from .climb import Climb
+from .deactivate import Deactivate
+from .demote import Demote
 from .grade import Grade
 from .hike_skill_level import HikeSkillLevel
 from .hike_tag import HikeTag
