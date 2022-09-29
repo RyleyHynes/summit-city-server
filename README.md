@@ -1,10 +1,10 @@
-# summit-city-server
+# **summit-city-server**
 
-# Front End Capstone for Nashville Software School
+## **Front End Capstone for Nashville Software School**
 
 Summit City allows users to select and filter through different hikes and climbs in Grand Teton National Park that they have completed or would like to add to their bucket list. From this list the user has the ability to create, update, and delete hikes and climbs. The app also allows the user to navigate to a customer centric information page where they can find helpful flip card links. Each user is assigned a profile where they can edit their personal information.
 
-# Installation
+## **Installation**
 
 1. Clone the repository git clone git@github.com:RyleyHynes/summit-city-server.git
 2. cd into the corresponding directory cd summit-city-server
@@ -12,7 +12,7 @@ Summit City allows users to select and filter through different hikes and climbs
 4. Client side of for the project located at Client Side LINK with instructions to clone and run
 5. Run the server python3 manage.py runserver
 
-# Tech Stack 
+## **Tech Stack** 
 
 * JavaScript
 * React
@@ -23,8 +23,8 @@ Summit City allows users to select and filter through different hikes and climbs
 * Git
 * Github
 
-# Initial WireFrame
-[Miro Wireframe (https://miro.com/app/board/uXjVOuz_z3k=/?share_link_id=454122560128)] 
+## **Initial WireFrame**
+[Miro Wireframe](https://miro.com/app/board/uXjVOuz_z3k=/?share_link_id=454122560128) 
 
-# Initial ERD
-[Dbdiagram ERD (https://dbdiagram.io/d/62a2290392b33b4f51348cbb)] 
+## **Initial ERD**
+[Dbdiagram ERD](https://dbdiagram.io/d/62a2290392b33b4f51348cbb)
