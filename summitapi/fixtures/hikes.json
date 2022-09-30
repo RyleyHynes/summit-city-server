@@ -3,7 +3,6 @@
         "model": "summitapi.hike",
         "pk": 1,
         "fields": {
-            "user": 1,
             "name": "Cascade Canyon Trail",
             "distance": 9.2,
             "location": "West Shore Boat Dock, Alta, WY 83414",
@@ -20,7 +19,6 @@
         "model": "summitapi.hike",
         "pk": 2,
         "fields": {
-            "user": 1,
             "name": "Jenny Lake Loop",
             "distance": 7.5,
             "location": "String Lake, Alta, WY 83414",

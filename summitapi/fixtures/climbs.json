@@ -3,7 +3,6 @@
         "model": "summitapi.climb",
         "pk": 1,
         "fields": {
-            "user": 1,
             "name": "Owen Spalding",
             "description":"route on the Grand ",
             "location": "Upper Saddle of the Grand Teton",
@@ -19,7 +18,6 @@
         "model": "summitapi.climb",
         "pk": 2,
         "fields": {
-            "user": 1,
             "name": "The Snaz",
             "description":"A Teton classic. Classic crack climbing with lots of variety. The technical crux is a roof pull on pitch 4, while the physical lies in the consistent flake and wide crack movement of pitch 3. There are some notable variations: at the belay for pitch 3, move left for a 5.10 finger crack. At the top of pitch six, you can move 100' right for two more 5.9 pitches, Cousin Leroy. At the top of pitch 7, climb a three-tiered roof at 10+ instead of the .7 chimney. Also very good.",
             "location": "Death Canyon- Cathedral Buttress",

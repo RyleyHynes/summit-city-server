@@ -2,7 +2,6 @@ from django.db import models
 
 
 class Hike(models.Model):
-    user = models.ForeignKey("SummitUser", on_delete=models.CASCADE, related_name="hikes")
     name = models.CharField(max_length=250)
     distance = models.DecimalField(decimal_places=4, max_digits=10)
     location = models.CharField(max_length=200)

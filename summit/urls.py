@@ -18,12 +18,31 @@ from django.urls import path, include
 from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
+from summitapi.views.activity import ActivityView
+from summitapi.views.climb import ClimbView
+from summitapi.views.climb_type import ClimbTypeView
+from summitapi.views.deactivate import DeactivateView
+from summitapi.views.demote import DemoteView
+from summitapi.views.grade import GradeView
+from summitapi.views.hike import HikeView
+from summitapi.views.my_hike import MyHikeView
+from summitapi.views.profile import ProfileView
 from summitapi.views.tag import TagView
 from summitapi.views.auth import login_user, register_user
 from summitapi.views.hike_skill_levels import HikeSkillLevelView
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'activities', ActivityView, 'activity')
+router.register(r'climb_types', ClimbTypeView, 'climb_type')
+router.register(r'climbs', ClimbView, 'climb')
+router.register(r'grades', GradeView, 'grade')
 router.register(r'hike_skill_levels', HikeSkillLevelView, 'hike_skill_level')
+router.register(r'deactivates', DeactivateView, 'deactivate')
+router.register(r'demotes', DemoteView, 'demote')
+router.register(r'hikes', HikeView, 'hike')
+router.register(r'my_climbs', ClimbView, 'my_climb')
+router.register(r'my_hikes', MyHikeView, 'my_hike')
+router.register(r'profiles', ProfileView, 'profile')
 router.register(r'tags', TagView, 'tag')
 
 

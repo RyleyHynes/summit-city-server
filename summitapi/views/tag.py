@@ -17,14 +17,6 @@ class TagSerializer(serializers.ModelSerializer):
 class TagView(ViewSet):
     """summit tag view"""
 
-    def list(self, request):
-        """Handles GET requests to get all tags
-
-        Returns: 
-            Response -- JSON serialized list of tags"""
-        tags = Tag.objects.all()
-        serializer = TagSerializer(tags, many=True)
-        return Response(serializer.data)
 
     def retrieve(self, request, pk):
         """Handles GET requests for a single tag
@@ -39,6 +31,16 @@ class TagView(ViewSet):
         except Tag.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
+    def list(self, request):
+        """Handles GET requests to get all tags
+
+        Returns: 
+            Response -- JSON serialized list of tags"""
+        tags = Tag.objects.all()
+        serializer = TagSerializer(tags, many=True)
+        return Response(serializer.data)
+
+        
     def create(self, request):
         """Handle POST operations
 
@@ -50,18 +52,18 @@ class TagView(ViewSet):
         )
         serializer = TagSerializer(label)
         return Response(serializer.data)
-    
+
     def update(self, request, pk):
         """Handle PUT requests for a tag
-        
+
         Returns:
             Response -- Empty body with 204 status code
             """
         tag = Tag.objects.get(pk=pk)
-        tag.label=request.data["label"]
+        tag.label = request.data["label"]
 
         tag.save()
-        
+
         return Response(None, status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk):

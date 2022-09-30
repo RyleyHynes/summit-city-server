@@ -17,14 +17,6 @@ class HikeSkillLevelSerializer(serializers.ModelSerializer):
 class HikeSkillLevelView(ViewSet):
     """summit hike skill level view"""
 
-    def list(self, request):
-        """Handles GET requests to get all hike skill levels
-
-        Returns: 
-            Response -- JSON serialized list of hike skill levels"""
-        hike_skill_levels = HikeSkillLevel.objects.all()
-        serializer = HikeSkillLevelSerializer(hike_skill_levels, many=True)
-        return Response(serializer.data)
 
     def retrieve(self, request, pk):
         """Handles GET requests for a single hike_skill_level
@@ -38,6 +30,16 @@ class HikeSkillLevelView(ViewSet):
             return Response(serializer.data)
         except HikeSkillLevel.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
+            
+    def list(self, request):
+        """Handles GET requests to get all hike skill levels
+
+        Returns: 
+            Response -- JSON serialized list of hike skill levels"""
+        hike_skill_levels = HikeSkillLevel.objects.all()
+        serializer = HikeSkillLevelSerializer(hike_skill_levels, many=True)
+        return Response(serializer.data)
 
     def create(self, request):
         """Handle POST operations

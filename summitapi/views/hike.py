@@ -1,9 +1,7 @@
-from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from summitapi.models.activity import Activity
-from summitapi.models.tag import Tag
 from summitapi.models.hike import Hike
 from summitapi.models.summit_user import SummitUser
 from django.db.models import Q
@@ -12,10 +10,10 @@ from summitapi.models.hike_skill_level import HikeSkillLevel
 
 
 class HikeSerializer(serializers.ModelSerializer):
-    """JSON serializer for reactions"""
+    """JSON serializer for hikes"""
     class Meta:
         model = Hike
-        fields = ('id', 'user', 'name', 'distance', 'location', 'estimated_length', 'description',
+        fields = ('id', 'name', 'distance', 'location', 'estimated_length', 'description',
                   'completed', 'bucket_list', 'hike_image_url', 'activity', 'hike_skill_level', 'tags')
 
 
@@ -69,12 +67,9 @@ class HikeView(ViewSet):
             Response -- JSON serialized hike instance
             """
 
-        user = SummitUser.objects.get(user=request.auth.user)
-
         activity = Activity.objects.get(pk=request.data["activity"])
         hike_skill_level = HikeSkillLevel.objects.get(
             pk=request.data["hike_skill_level"])
-        tag = Tag.objects.get(pk=request.data["tag"])
 
         hike = Hike.objects.create(
             name=request.data["name"],
@@ -102,10 +97,9 @@ class HikeView(ViewSet):
 
         user = SummitUser.objects.get(user=request.auth.user)
         # because its coming back as an object
-        activity = Activity.objects.get(pk=request.data["activity"]["id"])
+        activity = Activity.objects.get(pk=request.data["activity"])
         hike_skill_level = HikeSkillLevel.objects.get(
             pk=request.data["hike_skill_level"])
-        tag = Tag.objects.get(pk=request.data["tag"])
 
         hike = Hike.objects.get(pk=pk)
         if user.id != hike.user.id and user.user.is_staff == False:
@@ -118,7 +112,6 @@ class HikeView(ViewSet):
         hike.completed = request.data["completed"]
         hike.bucket_list = request.data["bucket_list"]
         hike.hike_image_url = request.data["hike_image_url"]
-        hike.description = request.data["description"]
         hike.activity = activity
         hike.hike_skill_level = hike_skill_level
         hike.tags.set(request.data["tags"])
