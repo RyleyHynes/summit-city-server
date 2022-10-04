@@ -5,8 +5,6 @@ class Climb(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     location = models.CharField(max_length=250)
-    completed = models.BooleanField(default=False)
-    bucket_list = models.BooleanField(default=False)
     climb_image_url = models.URLField()
     activity = models.ForeignKey(
         "Activity", on_delete=models.CASCADE, related_name="climbs")
