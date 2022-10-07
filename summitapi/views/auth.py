@@ -32,6 +32,7 @@ def login_user(request):
             'user_id': authenticated_user.id,
             'is_staff': authenticated_user.is_staff
         }
+        return Response(data)
     else:
         # Bad login details were provided. So we can't log the user in.
         data = {'valid': False}
