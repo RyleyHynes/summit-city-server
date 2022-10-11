@@ -13,8 +13,7 @@ class ClimbSerializer(serializers.ModelSerializer):
     """JSON serializer for climbs"""
     class Meta:
         model = Climb
-        fields = ('id', 'name', 'description', 'description', 'location',
-                  'completed', 'bucket_list', 'climb_image_url', 'activity', 'climb_type', 'grade' 'tags')
+        fields = ('id', 'name', 'description', 'description', 'location', 'climb_image_url', 'activity', 'climb_type', 'grade' 'tags')
 
 
 class ClimbView(ViewSet):
@@ -76,8 +75,6 @@ class ClimbView(ViewSet):
             name=request.data["name"],
             description=request.data["description"],
             location=request.data["location"],
-            completed=request.data["completed"],
-            bucket_list=request.data["bucket_list"],
             climb_image_url=request.data["climb_image_url"],
             activity=activity,
             climb_type=climb_type,
@@ -108,8 +105,6 @@ class ClimbView(ViewSet):
         climb.name = request.data["name"]
         climb.description = request.data["description"]
         climb.location = request.data["location"]
-        climb.completed = request.data["completed"]
-        climb.bucket_list = request.data["bucket_list"]
         climb.climb_image_url = request.data["climb_image_url"]
         climb.activity = activity
         climb.climb_type = climb_type

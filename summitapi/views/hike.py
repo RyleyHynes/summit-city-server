@@ -13,8 +13,7 @@ class HikeSerializer(serializers.ModelSerializer):
     """JSON serializer for hikes"""
     class Meta:
         model = Hike
-        fields = ('id', 'name', 'distance', 'location', 'estimated_length', 'description',
-                  'completed', 'bucket_list', 'hike_image_url', 'activity', 'hike_skill_level', 'tags')
+        fields = ('id', 'name', 'distance', 'location', 'estimated_length', 'description', 'hike_image_url', 'activity', 'hike_skill_level', 'tags')
 
 
 class HikeView(ViewSet):
@@ -77,8 +76,6 @@ class HikeView(ViewSet):
             location=request.data["location"],
             estimated_length=request.data["estimated_length"],
             description=request.data["description"],
-            completed=request.data["completed"],
-            bucket_list=request.data["bucket_list"],
             hike_image_url=request.data["hike_image_url"],
             activity=activity,
             hike_skill_level=hike_skill_level
@@ -109,8 +106,6 @@ class HikeView(ViewSet):
         hike.location = request.data["location"]
         hike.estimated_length = request.data["estimated_length"]
         hike.description = request.data["description"]
-        hike.completed = request.data["completed"]
-        hike.bucket_list = request.data["bucket_list"]
         hike.hike_image_url = request.data["hike_image_url"]
         hike.activity = activity
         hike.hike_skill_level = hike_skill_level
