@@ -99,7 +99,7 @@ class HikeView(ViewSet):
             pk=request.data["hike_skill_level"])
 
         hike = Hike.objects.get(pk=pk)
-        if user.id != hike.user.id and user.user.is_staff == False:
+        if user.id != hike.user.id and user.user.is_staff is False:
             return Response(None, status=status.HTTP_401_UNAUTHORIZED)
         hike.name = request.data["name"]
         hike.distance = request.data["distance"]
