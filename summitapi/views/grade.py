@@ -3,6 +3,8 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from summitapi.models import Grade
+from django.db.models import Q
+
 
 
 class GradeSerializer(serializers.ModelSerializer):
@@ -36,8 +38,15 @@ class GradeView(ViewSet):
         Returns:
             Response -- JSON serialized list of ratings
         """
-        ratings = Grade.objects.all()
-        serializer = GradeSerializer(ratings, many=True)
+        search = self.request.query_params.get('search', None)
+        grades = Grade.objects.all()
+
+        if search is not None:
+            grades = grades.filter(
+                Q(rating__contains=search)
+            )
+
+        serializer = GradeSerializer(grades, many=True)
         return Response(serializer.data)
 
     def create(self, request):

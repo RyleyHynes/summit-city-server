@@ -37,7 +37,14 @@ class HikeSkillLevelView(ViewSet):
 
         Returns: 
             Response -- JSON serialized list of hike skill levels"""
+        search = self.request.query_params.get('search', None)
         hike_skill_levels = HikeSkillLevel.objects.all()
+
+        if search is not None:
+            hike_skill_levels = hike_skill_levels.filter(
+                Q(level__contains=search)
+            )
+
         serializer = HikeSkillLevelSerializer(hike_skill_levels, many=True)
         return Response(serializer.data)
 
