@@ -6,8 +6,6 @@ class Climb(models.Model):
     description = models.TextField()
     location = models.CharField(max_length=250)
     climb_image_url = models.URLField()
-    activity = models.ForeignKey(
-        "Activity", on_delete=models.CASCADE, related_name="climbs")
     climb_type = models.ForeignKey(
         "ClimbType", on_delete=models.CASCADE, related_name="climbs")
     grade = models.ForeignKey(

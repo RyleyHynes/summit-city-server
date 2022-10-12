@@ -1,4 +1,3 @@
-from .activity import ActivityView
 from .auth import login_user, register_user
 from .climb_type import ClimbTypeView
 from .climb import ClimbView
@@ -10,4 +9,4 @@ from .my_climb import MyClimbView
 from .my_hike import MyHikeView
 from .profile import ProfileView
 from .tag import TagView
-
+from .hike_skill_levels import HikeSkillLevelSerializer

@@ -18,7 +18,6 @@ from django.urls import path, include
 from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
-from summitapi.views.activity import ActivityView
 from summitapi.views.climb import ClimbView
 from summitapi.views.climb_type import ClimbTypeView
 from summitapi.views.deactivate import DeactivateView
@@ -32,7 +31,6 @@ from summitapi.views.auth import login_user, register_user
 from summitapi.views.hike_skill_levels import HikeSkillLevelView
 
 router = routers.DefaultRouter(trailing_slash=False)
-router.register(r'activities', ActivityView, 'activity')
 router.register(r'climb_types', ClimbTypeView, 'climb_type')
 router.register(r'climbs', ClimbView, 'climb')
 router.register(r'grades', GradeView, 'grade')

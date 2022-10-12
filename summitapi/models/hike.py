@@ -8,8 +8,6 @@ class Hike(models.Model):
     estimated_length = models.CharField(max_length=100)
     description = models.TextField()
     hike_image_url = models.URLField()
-    activity = models.ForeignKey(
-        "Activity", on_delete=models.CASCADE, related_name="hikes")
     hike_skill_level = models.ForeignKey(
         "HikeSkillLevel", on_delete=models.CASCADE, related_name="hikes")
     tags = models.ManyToManyField("Tag", through="HikeTag", related_name="hikes")

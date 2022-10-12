@@ -1,4 +1,3 @@
-from .activity import Activity
 from .climb_tag import ClimbTag
 from .climb_type import ClimbType
 from .climb import Climb

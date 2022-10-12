@@ -1,7 +1,6 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from summitapi.models.activity import Activity
 from summitapi.models.hike import Hike
 from summitapi.models.summit_user import SummitUser
 from django.db.models import Q
@@ -13,7 +12,8 @@ class HikeSerializer(serializers.ModelSerializer):
     """JSON serializer for hikes"""
     class Meta:
         model = Hike
-        fields = ('id', 'name', 'distance', 'location', 'estimated_length', 'description', 'hike_image_url', 'activity', 'hike_skill_level', 'tags')
+        fields = ('id', 'name', 'distance', 'location', 'estimated_length', 'description', 'hike_image_url', 'hike_skill_level', 'tags')
+        depth = 2
 
 
 class HikeView(ViewSet):
@@ -43,9 +43,10 @@ class HikeView(ViewSet):
 
         if search is not None:
             hikes = hikes.filter(
-                Q(name__contains=search) |
-                Q(description__contains=search) |
-                Q(location__contains=search)
+                Q(name__icontains=search) |
+                Q(description__icontains=search) |
+                Q(location__icontains=search) |
+                Q(hike_skill_level__level__icontains=search)
             )
 
         tag = request.query_params.get('tag_id', None)
@@ -66,10 +67,7 @@ class HikeView(ViewSet):
             Response -- JSON serialized hike instance
             """
 
-        activity = Activity.objects.get(pk=request.data["activity"])
-        hike_skill_level = HikeSkillLevel.objects.get(
-            pk=request.data["hike_skill_level"])
-
+        hike_skill_level = HikeSkillLevel.objects.get(pk=request.data["hike_skill_level"])
         hike = Hike.objects.create(
             name=request.data["name"],
             distance=request.data["distance"],
@@ -77,7 +75,6 @@ class HikeView(ViewSet):
             estimated_length=request.data["estimated_length"],
             description=request.data["description"],
             hike_image_url=request.data["hike_image_url"],
-            activity=activity,
             hike_skill_level=hike_skill_level
         )
         hike.tags.set(request.data["tags"])
@@ -94,7 +91,6 @@ class HikeView(ViewSet):
 
         user = SummitUser.objects.get(user=request.auth.user)
         # because its coming back as an object
-        activity = Activity.objects.get(pk=request.data["activity"])
         hike_skill_level = HikeSkillLevel.objects.get(
             pk=request.data["hike_skill_level"])
 
@@ -107,7 +103,6 @@ class HikeView(ViewSet):
         hike.estimated_length = request.data["estimated_length"]
         hike.description = request.data["description"]
         hike.hike_image_url = request.data["hike_image_url"]
-        hike.activity = activity
         hike.hike_skill_level = hike_skill_level
         hike.tags.set(request.data["tags"])
 

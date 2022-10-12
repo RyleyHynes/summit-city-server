@@ -1,7 +1,6 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from summitapi.models.activity import Activity
 from summitapi.models.climb import Climb
 from summitapi.models.summit_user import SummitUser
 from summitapi.models.climb_type import ClimbType
@@ -13,7 +12,7 @@ class ClimbSerializer(serializers.ModelSerializer):
     """JSON serializer for climbs"""
     class Meta:
         model = Climb
-        fields = ('id', 'name', 'description', 'description', 'location', 'climb_image_url', 'activity', 'climb_type', 'grade' 'tags')
+        fields = ('id', 'name', 'description', 'description', 'location', 'climb_image_url', 'climb_type', 'grade' 'tags')
 
 
 class ClimbView(ViewSet):
@@ -66,7 +65,6 @@ class ClimbView(ViewSet):
             Response -- JSON serialized climb instance
             """
 
-        activity = Activity.objects.get(pk=request.data["activity"])
         climb_type = ClimbType.objects.get(
             pk=request.data["climb_type"])
         grade = Grade.objects.get(pk=request.data["grade"])
@@ -76,7 +74,6 @@ class ClimbView(ViewSet):
             description=request.data["description"],
             location=request.data["location"],
             climb_image_url=request.data["climb_image_url"],
-            activity=activity,
             climb_type=climb_type,
             grade=grade
         )
@@ -94,7 +91,6 @@ class ClimbView(ViewSet):
 
         user = SummitUser.objects.get(user=request.auth.user)
         # because its coming back as an object
-        activity = Activity.objects.get(pk=request.data["activity"])
         climb_type = ClimbType.objects.get(
             pk=request.data["hike_type"])
         grade = Grade.objects.get(pk=request.data["grade"])
@@ -106,7 +102,6 @@ class ClimbView(ViewSet):
         climb.description = request.data["description"]
         climb.location = request.data["location"]
         climb.climb_image_url = request.data["climb_image_url"]
-        climb.activity = activity
         climb.climb_type = climb_type
         climb.grade = grade
         climb.tags.set(request.data["tags"])
