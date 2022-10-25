@@ -89,14 +89,14 @@ class HikeView(ViewSet):
             Response -- Empty body with 204 status code
             """
 
-        user = SummitUser.objects.get(user=request.auth.user)
+        # user = SummitUser.objects.get(user=request.auth.user)
         # because its coming back as an object
         hike_skill_level = HikeSkillLevel.objects.get(
-            pk=request.data["hike_skill_level"])
+            pk=request.data["hike_skill_level"]["id"])
 
         hike = Hike.objects.get(pk=pk)
-        if user.id != hike.user.id and user.user.is_staff is False:
-            return Response(None, status=status.HTTP_401_UNAUTHORIZED)
+        # if user.id != hike.user.id and user.user.is_staff is False:
+        #     return Response(None, status=status.HTTP_401_UNAUTHORIZED)
         hike.name = request.data["name"]
         hike.distance = request.data["distance"]
         hike.location = request.data["location"]

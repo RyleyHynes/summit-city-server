@@ -12,7 +12,9 @@ class ClimbSerializer(serializers.ModelSerializer):
     """JSON serializer for climbs"""
     class Meta:
         model = Climb
-        fields = ('id', 'name', 'description', 'description', 'location', 'climb_image_url', 'climb_type', 'grade' 'tags')
+        fields = ('id', 'name', 'description', 'description',
+                  'location', 'climb_image_url', 'climb_type', 'grade', 'tags')
+        depth = 2
 
 
 class ClimbView(ViewSet):
@@ -89,15 +91,15 @@ class ClimbView(ViewSet):
             Response -- Empty body with 204 status code
             """
 
-        user = SummitUser.objects.get(user=request.auth.user)
+        # user = SummitUser.objects.get(user=request.auth.user)
         # because its coming back as an object
         climb_type = ClimbType.objects.get(
-            pk=request.data["hike_type"])
-        grade = Grade.objects.get(pk=request.data["grade"])
+            pk=request.data["climb_type"])
+        grade = Grade.objects.get(pk=request.data["grade"]["id"])
 
         climb = Climb.objects.get(pk=pk)
-        if user.id != climb.user.id and user.user.is_staff == False:
-            return Response(None, status=status.HTTP_401_UNAUTHORIZED)
+        # if user.id != climb.user.id and user.user.is_staff == False:
+        #     return Response(None, status=status.HTTP_401_UNAUTHORIZED)
         climb.name = request.data["name"]
         climb.description = request.data["description"]
         climb.location = request.data["location"]
