@@ -15,7 +15,7 @@ class MyHikeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MyHike
-        fields = ('id', 'summit_user', 'hikes')
+        fields = ('id', 'summit_user', 'hikes', 'completed', 'bucket_list')
         depth = 2
 
 
