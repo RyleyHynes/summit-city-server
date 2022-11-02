@@ -15,7 +15,7 @@ class MyHikeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MyHike
-        fields = ('id', 'summit_user', 'hikes', 'completed', 'bucket_list')
+        fields = ('id', 'summit_user', 'hikes')
         depth = 2
 
 
@@ -28,7 +28,7 @@ class MyHikeView(ViewSet):
         summit_user = SummitUser.objects.get(user=request.auth.user)
         search = self.request.query_params.get('search', None)
 
-        hike_list = MyHike.objects.get.filter(summit_user=summit_user)
+        hike_list = MyHike.objects.filter(summit_user=summit_user)
 
         serializer = MyHikeSerializer(hike_list, many=True)
         if search is not None:
@@ -46,15 +46,15 @@ class MyHikeView(ViewSet):
 
         summit_user = SummitUser.objects.get(user=request.auth.user)
 
-        my_hike, _ = MyHike.objects.get_or_create(
+        my_hike,_ = MyHike.objects.get_or_create(
             summit_user=summit_user
         )
         my_hike.hikes.add(request.data["hike_id"])
-        return Response({'message': 'show added'}, status=status.HTTP_201_CREATED)
+        return Response({'message': 'hike added'}, status=status.HTTP_201_CREATED)
 
     def destroy(self, request, pk):
         """Handles DELETE for hike in my hike"""
         summit_user = SummitUser.objects.get(user=request.auth.user)
         my_hike_instance = MyHike.objects.get(summit_user=summit_user)
-        my_hike_instance.shows.remove(pk)
+        my_hike_instance.hikes.remove(pk)
         return Response(None, status=status.HTTP_204_NO_CONTENT)

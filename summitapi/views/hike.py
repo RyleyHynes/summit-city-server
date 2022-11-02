@@ -68,6 +68,7 @@ class HikeView(ViewSet):
             """
 
         hike_skill_level = HikeSkillLevel.objects.get(pk=request.data["hike_skill_level"])
+        
         hike = Hike.objects.create(
             name=request.data["name"],
             distance=request.data["distance"],

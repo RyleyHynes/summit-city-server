@@ -67,8 +67,7 @@ class ClimbView(ViewSet):
             Response -- JSON serialized climb instance
             """
 
-        climb_type = ClimbType.objects.get(
-            pk=request.data["climb_type"])
+        climb_type = ClimbType.objects.get(pk=request.data["climb_type"])
         grade = Grade.objects.get(pk=request.data["grade"])
 
         climb = Climb.objects.create(

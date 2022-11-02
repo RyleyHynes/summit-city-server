@@ -11,6 +11,7 @@ class ClimbTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model= ClimbType
         fields=('id', 'name', 'climb_type_image')
+        depth = 2
 
 
 

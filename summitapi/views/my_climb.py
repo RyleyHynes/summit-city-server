@@ -28,7 +28,7 @@ class MyClimbView(ViewSet):
         summit_user = SummitUser.objects.get(user=request.auth.user)
         search = self.request.query_params.get('search', None)
 
-        climb_list = MyClimb.objects.get.filter(summit_user=summit_user)
+        climb_list = MyClimb.objects.filter(summit_user=summit_user)
 
         serializer = MyClimbSerializer(climb_list, many=True)
         if search is not None:
@@ -46,15 +46,15 @@ class MyClimbView(ViewSet):
 
         summit_user = SummitUser.objects.get(user=request.auth.user)
 
-        my_climb, _ = MyClimb.objects.get_or_create(
+        my_climb,_ = MyClimb.objects.get_or_create(
             summit_user=summit_user
         )
         my_climb.climbs.add(request.data["climb_id"])
-        return Response({'message': 'show added'}, status=status.HTTP_201_CREATED)
+        return Response({'message': 'climb added'}, status=status.HTTP_201_CREATED)
 
     def destroy(self, request, pk):
         """Handles DELETE for climb in my climb"""
         summit_user = SummitUser.objects.get(user=request.auth.user)
         my_climb_instance = MyClimb.objects.get(summit_user=summit_user)
-        my_climb_instance.shows.remove(pk)
+        my_climb_instance.climbs.remove(pk)
         return Response(None, status=status.HTTP_204_NO_CONTENT)
