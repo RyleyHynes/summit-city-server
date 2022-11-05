@@ -12,8 +12,7 @@ class ClimbSerializer(serializers.ModelSerializer):
     """JSON serializer for climbs"""
     class Meta:
         model = Climb
-        fields = ('id', 'name', 'description', 'description',
-                  'location', 'climb_image_url', 'climb_type', 'grade', 'tags')
+        fields = ('id', 'name', 'description', 'description','location', 'climb_image_url', 'climb_type', 'grade', 'tags')
         depth = 2
 
 

@@ -33,9 +33,9 @@ class MyHikeView(ViewSet):
         serializer = MyHikeSerializer(hike_list, many=True)
         if search is not None:
             hikes = hike_list[0].hikes.filter(
-                Q(hike__name__icontains=search) |
-                Q(hike__description__icontains=search) |
-                Q(hike__location__icontains=search)
+                Q(name__icontains=search) |
+                Q(description__icontains=search) |
+                Q(location__icontains=search)
             )
             hike_serializer = HikeSerializer(hikes, many=True)
             serializer.data[0]['hikes'] = hike_serializer.data
