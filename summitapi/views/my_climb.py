@@ -3,7 +3,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from summitapi.models import SummitUser
-from summitapi.models import my_climb
+# from summitapi.models import my_climb
 from summitapi.models.my_climb import MyClimb
 from summitapi.views.climb import ClimbSerializer
 from django.db.models import Q

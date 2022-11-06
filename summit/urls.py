@@ -24,6 +24,7 @@ from summitapi.views.deactivate import DeactivateView
 from summitapi.views.demote import DemoteView
 from summitapi.views.grade import GradeView
 from summitapi.views.hike import HikeView
+from summitapi.views.my_climb import MyClimbView
 from summitapi.views.my_hike import MyHikeView
 from summitapi.views.profile import ProfileView
 from summitapi.views.tag import TagView
@@ -38,7 +39,7 @@ router.register(r'hike_skill_levels', HikeSkillLevelView, 'hike_skill_level')
 router.register(r'deactivates', DeactivateView, 'deactivate')
 router.register(r'demotes', DemoteView, 'demote')
 router.register(r'hikes', HikeView, 'hike')
-router.register(r'my_climbs', ClimbView, 'my_climb')
+router.register(r'my_climbs', MyClimbView, 'my_climb')
 router.register(r'my_hikes', MyHikeView, 'my_hike')
 router.register(r'profiles', ProfileView, 'profile')
 router.register(r'tags', TagView, 'tag')
