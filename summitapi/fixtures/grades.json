@@ -1,0 +1,86 @@
+[
+    {
+        "model": "summitapi.grade",
+        "pk": 1,
+        "fields": {
+            "rating": 5.4
+        }
+    },
+    {
+        "model": "summitapi.grade",
+        "pk": 2,
+        "fields": {
+            "rating": 5.5
+        }
+    },
+    {
+        "model": "summitapi.grade",
+        "pk": 3,
+        "fields": {
+            "rating": 5.6
+        }
+    },
+    {
+        "model": "summitapi.grade",
+        "pk": 4,
+        "fields": {
+            "rating": 5.7
+        }
+    },
+    {
+        "model": "summitapi.grade",
+        "pk": 5,
+        "fields": {
+            "rating": 5.8
+        }
+    },
+    {
+        "model": "summitapi.grade",
+        "pk": 6,
+        "fields": {
+            "rating": 5.9
+        }
+    },
+    {
+        "model": "summitapi.grade",
+        "pk": 7,
+        "fields": {
+            "rating": 5.10
+        }
+    },
+    {
+        "model": "summitapi.grade",
+        "pk": 8,
+        "fields": {
+            "rating": 5.11
+        }
+    },
+    {
+        "model": "summitapi.grade",
+        "pk": 9,
+        "fields": {
+            "rating": 5.12
+        }
+    },
+    {
+        "model": "summitapi.grade",
+        "pk": 10,
+        "fields": {
+            "rating": 5.13
+        }
+    },
+    {
+        "model": "summitapi.grade",
+        "pk": 11,
+        "fields": {
+            "rating": 5.14
+        }
+    },
+    {
+        "model": "summitapi.grade",
+        "pk": 12,
+        "fields": {
+            "rating": 5.15
+        }
+    }
+]
