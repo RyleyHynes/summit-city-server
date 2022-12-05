@@ -93,7 +93,7 @@ class HikeView(ViewSet):
         # user = SummitUser.objects.get(user=request.auth.user)
         # because its coming back as an object
         hike_skill_level = HikeSkillLevel.objects.get(
-            pk=request.data["hike_skill_level"]["id"])
+            pk=request.data["hike_skill_level"])
 
         hike = Hike.objects.get(pk=pk)
         # if user.id != hike.user.id and user.user.is_staff is False:

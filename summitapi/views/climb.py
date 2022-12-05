@@ -93,8 +93,8 @@ class ClimbView(ViewSet):
         # user = SummitUser.objects.get(user=request.auth.user)
         # because its coming back as an object
         climb_type = ClimbType.objects.get(
-            pk=request.data["climb_type"]["id"])
-        grade = Grade.objects.get(pk=request.data["grade"]["id"])
+            pk=request.data["climb_type"])
+        grade = Grade.objects.get(pk=request.data["grade"])
 
         climb = Climb.objects.get(pk=pk)
         # if user.id != climb.user.id and user.user.is_staff == False:
