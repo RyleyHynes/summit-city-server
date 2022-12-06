@@ -67,5 +67,5 @@ def register_user(request):
     token = Token.objects.create(user=summit_user.user)
     # Return the token to the client
     data = {'token': token.key, 'user_id': new_user.id,
-            'is_staff': new_user.is_staff}
+            'is_staff': new_user.is_staff, "valid": True}
     return Response(data, status=status.HTTP_201_CREATED)
